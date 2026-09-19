@@ -1,8 +1,40 @@
 <!DOCTYPE html>
 <html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+html,body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    overflow: hidden;
+}
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+</style>
+</head>
+
 <body>
 
-<video controls width="100%" src="nayuta_sleep.mp4"></video>
+<video id="video"
+    src="nayuta_sleep.mp4"
+    autoplay
+    muted
+    loop
+    playsinline>
+</video>
+
+<script>
+const video = document.getElementById("video");
+
+video.addEventListener("loadedmetadata", () => {
+    video.webkitEnterFullscreen();
+});
+</script>
 
 </body>
 </html>
