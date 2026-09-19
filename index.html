@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<title></title>
+<style>
+html,body{
+    margin:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background:#000;
+}
+video{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    background:#000;
+}
+</style>
+</head>
+<body>
+
+<video autoplay muted loop playsinline preload="auto" disablepictureinpicture controlslist="nodownload noplaybackrate nofullscreen">
+    <source src="nayuta_sleep.mp4" type="video/mp4">
+</video>
+
+<script>
+const v=document.querySelector("video");
+v.muted=true;
+v.controls=false;
+v.play().catch(()=>{});
+</script>
+
+</body>
+</html>
