@@ -1,38 +1,39 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
-<title></title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <style>
-html,body{
-    margin:0;
-    width:100%;
-    height:100%;
-    overflow:hidden;
-    background:#000;
+html,body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    overflow: hidden;
 }
-video{
-    position:fixed;
-    inset:0;
-    width:100%;
-    height:100%;
-    object-fit:contain;
-    background:#000;
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 </style>
 </head>
+
 <body>
 
-<video autoplay muted loop playsinline preload="auto" disablepictureinpicture controlslist="nodownload noplaybackrate nofullscreen">
-    <source src="nayuta_sleep.mp4" type="video/mp4">
+<video id="video"
+    src="video.mp4"
+    autoplay
+    muted
+    loop
+    playsinline>
 </video>
 
 <script>
-const v=document.querySelector("video");
-v.muted=true;
-v.controls=false;
-v.play().catch(()=>{});
+const video = document.getElementById("video");
+
+video.addEventListener("loadedmetadata", () => {
+    video.webkitEnterFullscreen();
+});
 </script>
 
 </body>
